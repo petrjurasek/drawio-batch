@@ -13,5 +13,17 @@ docker build -t petrjurasek/drawio-batch .
 example of generating image from current directory
 
 ```
- docker run -v $(pwd):/code petrjurasek/drawio-batch resources/example.xml resources/example.png
+ docker run -v $(pwd):/code petrjurasek/drawio-batch -q 100 -f png resources/example.xml resources/example.png
+```
+
+making the alias in your ``rc`` file makes the usage even easier
+
+```
+alias drawio-batch='docker run -v $(pwd):/code petrjurasek/drawio-batch'
+```
+
+and then running
+
+```
+drawio-batch  -q 100 -f png resources/example.xml resources/example.png
 ```
