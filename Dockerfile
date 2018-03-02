@@ -1,10 +1,11 @@
-FROM python:3.6.4-stretch
+FROM python:3.6.4-slim-stretch
 MAINTAINER Petr Jurasek
 
 ENV DRAWIOBATCH_VERSION 8.2.2
 ENV PHANTOMJS_VERSION 2.1.1
 
-RUN cd /tmp  \
+RUN apt-get update && apt-get install -y wget bzip2 libfontconfig1 \
+    && cd /tmp  \
     && wget https://github.com/languitar/drawio-batch/archive/${DRAWIOBATCH_VERSION}.tar.gz \
     && tar xfvz ${DRAWIOBATCH_VERSION}.tar.gz \
     && cd drawio-batch-${DRAWIOBATCH_VERSION} \
