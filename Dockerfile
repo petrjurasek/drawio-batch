@@ -16,4 +16,5 @@ RUN cd /tmp  \
 RUN mkdir /code
 WORKDIR /code 
 
-CMD ["ash"] 
+COPY docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]
