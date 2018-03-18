@@ -15,7 +15,9 @@ RUN apt-get update && apt-get install -y wget bzip2 libfontconfig1 \
     && tar xfvj phantomjs-${PHANTOMJS_VERSION}-linux-x86_64.tar.bz2 \
     && mv phantomjs-${PHANTOMJS_VERSION}-linux-x86_64/bin/phantomjs /usr/bin/phantomjs \
     && chmod +x /usr/bin/phantomjs \
-    && rm -rf /tmp/* 
+    && rm -rf /tmp/* \
+    && mkdir /.cache \
+    && chmod 777 /.cache
 
 RUN mkdir /code
 WORKDIR /code 
